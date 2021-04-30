@@ -8,6 +8,11 @@ import javax.inject.Inject
 class Car @Inject constructor(private val engine: Engine, private val wheels: Wheels) {
     private val TAG: String = "Car"
 
+    @Inject
+    fun enableRemote(remote: Remote) {
+        remote.setListener(this)
+    }
+
     fun drive(){
         Log.d(TAG, "driving...")
     }
