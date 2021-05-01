@@ -3,9 +3,14 @@ package me.fernandesleite.dagger2traininggrounds
 import android.util.Log
 import javax.inject.Inject
 
-class DieselEngine @Inject constructor() : Engine{
+class DieselEngine constructor(private val horsePower: Int) : Engine{
+    /**
+     * Since we want to inject variables into our dependency graph at run time
+     * we create @Provide with the constructor to the module
+     * and pass the parameter set it on the Component builder
+     */
     private val TAG = "Car"
     override fun start() {
-        Log.d(TAG, "Diesel engine started")
+        Log.d(TAG, "Diesel engine started. Horsepower: $horsePower")
     }
 }

@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         /** Create Component **/
-        val component: CarComponent = DaggerCarComponent.create()
+        val component: CarComponent = DaggerCarComponent.builder().dieselEngineModule(DieselEngineModule(100)).build()
 
         /** inject is a void method that take a parameter of a specific type **/
         component.inject(this)

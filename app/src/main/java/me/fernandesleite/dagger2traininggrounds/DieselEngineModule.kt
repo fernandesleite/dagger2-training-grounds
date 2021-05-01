@@ -2,14 +2,12 @@ package me.fernandesleite.dagger2traininggrounds
 
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 @Module
-abstract class DieselEngineModule {
-    /**
-     *  Binds methods are more concise because they are declared as abstract methods without a body,
-     *  and they are more efficient because Dagger doesn’t have to
-     *  invoke them or even instantiate their containing module.
-     ***/
-    @Binds
-    abstract fun bindEngine(engine: DieselEngine): Engine
+class DieselEngineModule(private val horsePower: Int) {
+    @Provides
+    fun provideEngine(): Engine {
+        return DieselEngine(horsePower)
+    }
 }
