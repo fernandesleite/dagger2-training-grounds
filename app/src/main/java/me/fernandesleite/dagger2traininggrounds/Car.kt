@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 // @Inject annotate the constructor that Dagger should use to create instances of a class
 // Constructor injection: Defining the list of required dependencies as parameters to the class's constructor
-class Car @Inject constructor(private val engine: Engine, private val wheels: Wheels) {
+class Car @Inject constructor(private val driver: Driver, private val engine: Engine, private val wheels: Wheels) {
     private val TAG: String = "Car"
 
     @Inject
@@ -15,6 +15,6 @@ class Car @Inject constructor(private val engine: Engine, private val wheels: Wh
 
     fun drive(){
         engine.start()
-        Log.d(TAG, "driving...")
+        Log.d(TAG, "$driver drives $this")
     }
 }
