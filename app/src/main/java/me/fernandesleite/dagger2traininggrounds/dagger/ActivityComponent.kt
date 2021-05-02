@@ -1,7 +1,6 @@
 package me.fernandesleite.dagger2traininggrounds.dagger
 
 import dagger.BindsInstance
-import dagger.Component
 import dagger.Subcomponent
 import me.fernandesleite.dagger2traininggrounds.MainActivity
 import me.fernandesleite.dagger2traininggrounds.car.Car
@@ -32,14 +31,22 @@ interface ActivityComponent {
      * but can be returned from a parent component as an alternative
      * to subcomponent factory methods.
      */
-    @Subcomponent.Builder
-    interface Builder {
-        @BindsInstance
-        fun horsePower(@Named("horse power") horsePower: Int): Builder
+//    @Subcomponent.Builder
+//    interface Builder {
+//        @BindsInstance
+//        fun horsePower(@Named("horse power") horsePower: Int): Builder
+//
+//        @BindsInstance
+//        fun engineCapacity(@Named("engine capacity") engineCapacity: Int): Builder
+//
+//        fun build(): ActivityComponent
+//    }
 
-        @BindsInstance
-        fun engineCapacity(@Named("engine capacity") engineCapacity: Int): Builder
-
-        fun build(): ActivityComponent
+    @Subcomponent.Factory
+    interface Factory {
+        fun create(
+            @BindsInstance @Named("horse power") horsePower: Int,
+            @BindsInstance @Named("engine capacity") engineCapacity: Int
+        ) : ActivityComponent
     }
 }

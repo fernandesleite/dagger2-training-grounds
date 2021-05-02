@@ -1,13 +1,22 @@
 package me.fernandesleite.dagger2traininggrounds.dagger
 
 import dagger.Component
-import me.fernandesleite.dagger2traininggrounds.car.Driver
-import javax.inject.Scope
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [DriverModule::class])
 interface AppComponent {
 
-    fun getActivityComponentBuilder(): ActivityComponent.Builder
+    //    fun getActivityComponentBuilder(): ActivityComponent.Builder
+    fun getActivityComponentFactory(): ActivityComponent.Factory
+
+    /**
+     * Component factories are compile-time safe and more
+     * concise alternatives to component builders
+     * for passing values to the dependency graph at runtime.
+     */
+    @Component.Factory
+    interface Factory {
+        fun create(): AppComponent
+    }
 }
