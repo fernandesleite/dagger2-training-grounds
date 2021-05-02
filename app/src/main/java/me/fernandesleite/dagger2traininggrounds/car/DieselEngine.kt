@@ -1,9 +1,8 @@
-package me.fernandesleite.dagger2traininggrounds
+package me.fernandesleite.dagger2traininggrounds.car
 
 import android.util.Log
-import javax.inject.Inject
 
-class DieselEngine constructor(private val horsePower: Int) : Engine{
+class DieselEngine constructor(private val horsePower: Int) : Engine {
     /**
      * Since we want to inject variables into our dependency graph at run time
      * we create @Provide with the constructor to the module

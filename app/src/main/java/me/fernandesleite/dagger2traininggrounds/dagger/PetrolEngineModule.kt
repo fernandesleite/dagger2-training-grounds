@@ -1,7 +1,9 @@
-package me.fernandesleite.dagger2traininggrounds
+package me.fernandesleite.dagger2traininggrounds.dagger
 
 import dagger.Binds
 import dagger.Module
+import me.fernandesleite.dagger2traininggrounds.car.Engine
+import me.fernandesleite.dagger2traininggrounds.car.PetrolEngine
 
 @Module
 abstract class PetrolEngineModule {

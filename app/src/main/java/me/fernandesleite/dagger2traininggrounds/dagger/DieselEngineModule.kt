@@ -1,8 +1,9 @@
-package me.fernandesleite.dagger2traininggrounds
+package me.fernandesleite.dagger2traininggrounds.dagger
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import me.fernandesleite.dagger2traininggrounds.car.DieselEngine
+import me.fernandesleite.dagger2traininggrounds.car.Engine
 
 @Module
 class DieselEngineModule(private val horsePower: Int) {

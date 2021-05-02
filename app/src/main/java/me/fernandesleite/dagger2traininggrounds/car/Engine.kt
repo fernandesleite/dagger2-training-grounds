@@ -1,4 +1,4 @@
-package me.fernandesleite.dagger2traininggrounds
+package me.fernandesleite.dagger2traininggrounds.car
 
 import javax.inject.Inject
 

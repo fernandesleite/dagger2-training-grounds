@@ -1,6 +1,7 @@
-package me.fernandesleite.dagger2traininggrounds
+package me.fernandesleite.dagger2traininggrounds.car
 
 import android.util.Log
+import me.fernandesleite.dagger2traininggrounds.car.Car
 import javax.inject.Inject
 
 class Remote @Inject constructor(){

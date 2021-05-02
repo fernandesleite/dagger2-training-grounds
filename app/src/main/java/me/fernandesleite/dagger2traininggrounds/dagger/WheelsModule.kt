@@ -1,7 +1,10 @@
-package me.fernandesleite.dagger2traininggrounds
+package me.fernandesleite.dagger2traininggrounds.dagger
 
 import dagger.Module
 import dagger.Provides
+import me.fernandesleite.dagger2traininggrounds.car.Rims
+import me.fernandesleite.dagger2traininggrounds.car.Tires
+import me.fernandesleite.dagger2traininggrounds.car.Wheels
 
 /**
  * Modules: class that provides or builds the objects dependencies
