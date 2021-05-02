@@ -3,8 +3,7 @@ package me.fernandesleite.dagger2traininggrounds
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import me.fernandesleite.dagger2traininggrounds.car.Car
-import me.fernandesleite.dagger2traininggrounds.dagger.ActivityComponent
-import me.fernandesleite.dagger2traininggrounds.dagger.DaggerActivityComponent
+import me.fernandesleite.dagger2traininggrounds.dagger.DieselEngineModule
 import me.fernandesleite.dagger2traininggrounds.dagger.ExampleApp
 import javax.inject.Inject
 
@@ -23,11 +22,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component: ActivityComponent = DaggerActivityComponent.builder()
-            .horsePower(120)
-            .engineCapacity(1400)
-            .appComponent((application as ExampleApp).getAppComponent())
-            .build()
+        val component = (application as ExampleApp).getAppComponent()
+            .getActivityComponent(DieselEngineModule(120))
+
+//        val component: ActivityComponent = DaggerActivityComponent.builder()
+//            .horsePower(120)
+//            .engineCapacity(1400)
+//            .appComponent((application as ExampleApp).getAppComponent())
+//            .build()
         component.inject(this)
         car1.drive()
         car2.drive()
