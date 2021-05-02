@@ -23,7 +23,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val component = (application as ExampleApp).getAppComponent()
-            .getActivityComponent(DieselEngineModule(120))
+            .getActivityComponentBuilder()
+            .horsePower(120)
+            .engineCapacity(1400)
+            .build()
 
 //        val component: ActivityComponent = DaggerActivityComponent.builder()
 //            .horsePower(120)

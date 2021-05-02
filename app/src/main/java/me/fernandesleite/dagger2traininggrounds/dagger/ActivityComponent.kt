@@ -21,22 +21,25 @@ import javax.inject.Named
  */
 
 @PerActivity
-@Subcomponent(modules = [WheelsModule::class, DieselEngineModule::class])
+@Subcomponent(modules = [WheelsModule::class, PetrolEngineModule::class])
 interface ActivityComponent {
     fun getCar(): Car
 
     fun inject(mainActivity: MainActivity)
 
-//    @Component.Builder
-//    interface Builder {
-//        @BindsInstance
-//        fun horsePower(@Named("horse power") horsePower: Int): Builder
-//
-//        @BindsInstance
-//        fun engineCapacity(@Named("engine capacity") engineCapacity: Int): Builder
-//
-//        fun appComponent(component: AppComponent): Builder
-//
-//        fun build(): ActivityComponent
-//    }
+    /**
+     * Subcomponent builders follow the same rules as normal component builders
+     * but can be returned from a parent component as an alternative
+     * to subcomponent factory methods.
+     */
+    @Subcomponent.Builder
+    interface Builder {
+        @BindsInstance
+        fun horsePower(@Named("horse power") horsePower: Int): Builder
+
+        @BindsInstance
+        fun engineCapacity(@Named("engine capacity") engineCapacity: Int): Builder
+
+        fun build(): ActivityComponent
+    }
 }
